@@ -1,5 +1,7 @@
 <script>
-// import MyComponent from "./components/MyComponent.vue";
+import HeaderApp from "./components/header/HeaderApp.vue";
+import MainApp from "./components/main/MainApp.vue";
+import FooterApp from "./components/FooterApp.vue";
 
 export default {
   data() {
@@ -8,14 +10,20 @@ export default {
     };
   },
 
-  // components: {
-  //   MyComponent,
-  // },
+  components: {
+    HeaderApp,
+    MainApp,
+    FooterApp,
+  },
 };
 </script>
 
 <template>
-  <h1>{{ title }}</h1>
+  <HeaderApp />
+  <MainApp />
+  <FooterApp />
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+@use "./assets/styles/general.scss";
+</style>

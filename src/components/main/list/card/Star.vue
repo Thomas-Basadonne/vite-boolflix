@@ -1,5 +1,5 @@
 <script>
-import Card from "./card/Card.vue";
+// import MyComponent from "./components/MyComponent.vue";
 
 export default {
   data() {
@@ -8,9 +8,9 @@ export default {
     };
   },
 
-  components: {
-    Card,
-  },
+  // components: {
+  //   MyComponent,
+  // },
 };
 </script>
 

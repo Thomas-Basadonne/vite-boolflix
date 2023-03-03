@@ -1,5 +1,5 @@
 <script>
-// import MyComponent from "./components/MyComponent.vue";
+import SearchTool from "../header/SerachTool.vue";
 
 export default {
   data() {
@@ -8,14 +8,14 @@ export default {
     };
   },
 
-  // components: {
-  //   MyComponent,
-  // },
+  components: {
+    SearchTool,
+  },
 };
 </script>
 
 <template>
-  <h1>{{ title }}</h1>
+  <SearchTool />
 </template>
 
 <style lang="scss" scoped></style>

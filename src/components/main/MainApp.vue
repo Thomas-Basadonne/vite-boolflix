@@ -1,5 +1,6 @@
 <script>
-// import MyComponent from "./components/MyComponent.vue";
+import FilmList from "../main/list/FilmList.vue";
+import SeriesLIst from "../main/list/SeriesLIst.vue";
 
 export default {
   data() {
@@ -8,14 +9,18 @@ export default {
     };
   },
 
-  // components: {
-  //   MyComponent,
-  // },
+  components: {
+    FilmList,
+    SeriesLIst,
+  },
 };
 </script>
 
 <template>
-  <h1>{{ title }}</h1>
+  <main>
+    <div><FilmList /></div>
+    <div><SeriesLIst /></div>
+  </main>
 </template>
 
 <style lang="scss" scoped></style>

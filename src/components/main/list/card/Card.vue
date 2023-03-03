@@ -1,5 +1,6 @@
 <script>
-// import MyComponent from "./components/MyComponent.vue";
+import Language from "./card/Language.vue";
+import Star from "./card/Star.vue";
 
 export default {
   data() {
@@ -8,9 +9,10 @@ export default {
     };
   },
 
-  // components: {
-  //   MyComponent,
-  // },
+  components: {
+    Language,
+    Star,
+  },
 };
 </script>
 
