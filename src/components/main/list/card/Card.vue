@@ -1,6 +1,6 @@
 <script>
-import Language from "./card/Language.vue";
-import Star from "./card/Star.vue";
+import Language from "../card/Language.vue";
+import Star from "../card/Star.vue";
 
 export default {
   data() {
