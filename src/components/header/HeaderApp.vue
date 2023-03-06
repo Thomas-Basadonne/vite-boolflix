@@ -15,7 +15,14 @@ export default {
 </script>
 
 <template>
-  <SearchTool />
+  <header>
+    <nav class="navbar bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand text-danger fw-bold fs-2" href="#"> BOOLFLIX </a>
+        <SearchTool />
+      </div>
+    </nav>
+  </header>
 </template>
 
 <style lang="scss" scoped></style>

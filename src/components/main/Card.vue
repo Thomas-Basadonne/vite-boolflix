@@ -8,9 +8,14 @@ export default {
     };
   },
 
-  // components: {
-  //   MyComponent,
-  // },
+  props: {
+    title: String,
+    origTitle: String,
+    language: String,
+    vote: Number,
+    endImgUrl: String,
+    overview: String,
+  },
 };
 </script>
 

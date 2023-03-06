@@ -9,9 +9,6 @@ main {
     }
 }
 footer{
-    link header &  select lingua
+  
 }
 
-
-LINK REFERRAL TOME
-https://tome.app/invite/thomas-clesk7v5a08hp19cb1n14gi05

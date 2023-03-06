@@ -4,18 +4,35 @@
 export default {
   data() {
     return {
-      title: "Hello world",
+      word: "",
     };
   },
 
-  // components: {
-  //   MyComponent,
-  // },
+  emits: ["SearchWord"],
+
+  methods: {
+    startSearch() {
+      this.$emit("SearchWord", this.word);
+    },
+  },
 };
 </script>
 
 <template>
-  <h1>{{ title }}</h1>
+  <!-- *** COMPONENTE SEARCH *** -->
+  <form class="d-flex" role="search" @submit.prevent="">
+    <input
+      class="form-control me-2"
+      type="search"
+      placeholder="Search"
+      aria-label="Search"
+      v-model="word"
+      @keyup.enter="startSearch"
+    />
+    <button class="btn btn-danger" type="submit" @click="startSearch()">
+      Search
+    </button>
+  </form>
 </template>
 
 <style lang="scss" scoped></style>
