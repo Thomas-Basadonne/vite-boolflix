@@ -1,5 +1,5 @@
 <script>
-import SearchTool from "../header/SerachTool.vue";
+import SearchTool from "./SerachTool.vue";
 
 export default {
   data() {

@@ -12,7 +12,9 @@ export default {
 
   methods: {
     startSearch() {
+      console.log("search word: ", this.word);
       this.$emit("SearchWord", this.word);
+      this.word = "";
     },
   },
 };
