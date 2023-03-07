@@ -30,6 +30,10 @@ export default {
 
       return "https://flagsapi.com/" + country + "/flat/64.png";
     },
+
+    starsVote(vote) {
+      return Math.ceil(vote / 2);
+    },
   },
 };
 </script>
@@ -47,7 +51,18 @@ export default {
           <span>
             <img :src="getFlag(lang)" alt="" />
           </span>
-          <p>{{ vote }}</p>
+          <div class="d-flex justify-content-center mb-4">
+            <div v-for="punteggio in 5" :key="punteggio">
+              <font-awesome-icon
+                v-if="punteggio <= starsVote(vote)"
+                icon="fa-solid fa-star"
+              />
+              <font-awesome-icon
+                v-if="punteggio > starsVote(vote)"
+                icon="fa-regular fa-star"
+              />
+            </div>
+          </div>
           <p class="fs-6">TRAMA</p>
         </div>
       </div>
