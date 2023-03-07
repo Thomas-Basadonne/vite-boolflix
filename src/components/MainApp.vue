@@ -19,7 +19,7 @@ export default {
   <main>
     <!-- SECTION FILM -->
     <div v-if="store.filmList.length">
-      <h2 class="badge text-bg-danger fs-2 my-5">film</h2>
+      <h2 class="badge text-bg-danger fs-2 my-5">Film</h2>
       <div class="row row-cols-4 gy-5">
         <card
           v-for="film in store.filmList"
