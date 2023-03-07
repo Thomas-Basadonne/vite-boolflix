@@ -41,6 +41,7 @@ export default {
               originalTitle: film.original_title,
               lang: film.original_language,
               vote: film.vote_average,
+              overview: film.overview,
               poster: film.poster_path,
             };
           });
@@ -60,6 +61,7 @@ export default {
               originalTitle: tvSerie.original_name,
               lang: tvSerie.original_language,
               vote: tvSerie.vote_average,
+              overview: tvSerie.overview,
               poster: tvSerie.poster_path,
             };
           });

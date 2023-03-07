@@ -19,14 +19,15 @@ export default {
   <main>
     <!-- SECTION FILM -->
     <div v-if="store.filmList.length">
-      <h2>film</h2>
-      <div class="row row-cols-3">
+      <h2 class="badge text-bg-danger fs-2 my-5">film</h2>
+      <div class="row row-cols-4 gy-5">
         <card
           v-for="film in store.filmList"
           :title="film.title"
           :originalTitle="film.originalTitle"
           :lang="film.lang"
           :vote="film.vote"
+          :overview="film.overview"
           :poster="film.poster"
         />
       </div>
@@ -34,14 +35,15 @@ export default {
 
     <!-- SECTION SERIE -->
     <div v-if="store.TvSeriesList.length">
-      <h2>Serie tv</h2>
-      <div class="row row-cols-3">
+      <h2 class="badge text-bg-danger fs-2 my-5">Serie tv</h2>
+      <div class="row row-cols-4 gy-5">
         <card
           v-for="TvSerie in store.TvSeriesList"
           :title="TvSerie.title"
           :originalTitle="TvSerie.originalTitle"
           :lang="TvSerie.lang"
           :vote="TvSerie.vote"
+          :overview="TvSerie.overview"
           :poster="TvSerie.poster"
         />
       </div>

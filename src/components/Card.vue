@@ -63,11 +63,56 @@ export default {
               />
             </div>
           </div>
-          <p class="fs-6">TRAMA</p>
+          <div class="overview mx-2">
+            <h4 class="fs-6">TRAMA</h4>
+            <p>{{ overview }}</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+// The flip card container
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 450px;
+  /* debug */
+  border: 1px solid;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-card-back {
+  background-color: rgb(45, 47, 50);
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.overview {
+  height: 220px;
+  overflow: auto;
+}
+</style>
