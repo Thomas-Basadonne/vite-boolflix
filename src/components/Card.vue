@@ -1,22 +1,27 @@
 <script>
-// import MyComponent from "./components/MyComponent.vue";
-
 export default {
   props: {
     title: String,
-    origTitle: String,
-    language: String,
+    originalTitle: String,
+    lang: String,
     vote: Number,
-    endImgUrl: String,
+    poster: String,
     overview: String,
   },
 
-  computed: {
-    flagUrl() {
-      return `https://flagcdn.com/16x12/${this.language}.png`;
-    },
-    posterUrl() {
-      return `https://image.tmdb.org/t/p/w342${this.endImgUrl}`;
+  methods: {
+    // da lingua a bandiera
+    getFlag(country) {
+      country = country.toUpperCase();
+
+      // casi particolari
+      if (country == "EN") return "https://flagsapi.com/GB/flat/64.png";
+      if (country == "KO") return "https://flagsapi.com/KR/flat/64.png";
+      if (country == "JA") return "https://flagsapi.com/JP/flat/64.png";
+      if (country == "ZH") return "https://flagsapi.com/CN/flat/64.png";
+      if (country == "ZH") return "https://flagsapi.com/CN/flat/64.png";
+
+      return "https://flagsapi.com/" + country + "/flat/64.png";
     },
   },
 };
@@ -24,7 +29,7 @@ export default {
 
 <template>
   <div class="card-container">
-    <div class="flip-card">
+    <!-- <div class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
           <img src="" alt="Copertina" class="img-fluid" />
@@ -37,7 +42,15 @@ export default {
           <p class="fs-6">{{ overview }}</p>
         </div>
       </div>
-    </div>
+    </div> -->
+    <ul class="col">
+      <li>{{ title }}</li>
+      <li>{{ originalTitle }}</li>
+      <li>
+        <img :src="getFlag(lang)" alt="" />
+      </li>
+      <li>{{ vote }}</li>
+    </ul>
   </div>
 </template>
 

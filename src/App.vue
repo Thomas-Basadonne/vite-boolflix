@@ -1,5 +1,5 @@
 <script>
-import HeaderApp from "./components/HeaderApp.vue";
+import SearchTool from "./components/SearchTool.vue";
 import MainApp from "./components/MainApp.vue";
 
 import axios from "axios";
@@ -8,30 +8,62 @@ import { store } from "./data/store";
 export default {
   data() {
     return {
+      title: "Boolflix",
+      baseUri: "https://api.themoviedb.org/3",
+      apiKey: "0ff807a2f823ddb0cbb849cc05534f0e",
+      filmList: [],
       store,
     };
   },
 
   components: {
-    HeaderApp,
+    SearchTool,
     MainApp,
   },
 
   methods: {
-    fetchPage(word) {
+    // funzione che le attiva entrambe
+    fetchResults(term) {
+      this.fetchMovies(term);
+      this.fetchTvSeries(term);
+    },
+
+    // ricerca api tra i film
+    fetchMovies(query) {
       axios
         .get(
-          `https://api.themoviedb.org/3/search/multi?api_key=0ff807a2f823ddb0cbb849cc05534f0e&query=${word}`
+          `${this.baseUri}/search/movie?api_key=${this.apiKey}&query=${query}`
         )
         .then((response) => {
-          console.log("response: ", response.data.results);
-          store.everyResults = response.data.results;
-          store.movieArray = store.everyResults.filter(
-            (result) => result.media_type == "movie"
-          );
-          store.seriesArray = store.everyResults.filter(
-            (result) => result.media_type == "tv"
-          );
+          const films = response.data.results.map((film) => {
+            return {
+              title: film.title,
+              originalTitle: film.original_title,
+              lang: film.original_language,
+              vote: film.vote_average,
+              poster: film.poster_path,
+            };
+          });
+
+          store.filmList = films;
+        });
+    },
+
+    // ricerca api tra le serie
+    fetchTvSeries(query) {
+      axios
+        .get(`${this.baseUri}/search/tv?api_key=${this.apiKey}&query=${query}`)
+        .then((response) => {
+          const tvSeries = response.data.results.map((tvSerie) => {
+            return {
+              title: tvSerie.name,
+              originalTitle: tvSerie.original_name,
+              lang: tvSerie.original_language,
+              vote: tvSerie.vote_average,
+              poster: tvSerie.poster_path,
+            };
+          });
+          store.TvSeriesList = tvSeries;
         });
     },
   },
@@ -39,13 +71,11 @@ export default {
 </script>
 
 <template>
-  <HeaderApp @SearchWord="fetchPage" />
-  <MainApp :results="store.movieArray">
-    <h1 v-if="store.movieArray.length > 0" class="pt-5">Movies</h1>
-  </MainApp>
-  <MainApp :results="store.seriesArray">
-    <h1 v-if="store.seriesArray.length > 0" class="pt-5">Series</h1>
-  </MainApp>
+  <SearchTool :title="title" @startSearch="fetchResults" />
+
+  <main class="container">
+    <MainApp />
+  </main>
 </template>
 
 <style lang="scss">

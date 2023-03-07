@@ -12,3 +12,11 @@ footer{
   
 }
 
+Cercando il titolo di un film sul componente SearchTool, dovrebbe scattare un'azione che richiama il metodo fetchPage che esegue una chiamata all'API per cercare il titolo nella sua base di dati.
+
+Se ci sono risultati, verranno immessi nell'oggetto store come una lista di film o serie, a seconda della loro categoria.
+
+Successivamente, il componente MainApp viene invocato due volte, una volta per la lista di film e una volta per la lista di serie. Ogni volta che il componente viene invocato, viene passata la lista di risultati appropriata come prop.
+
+Infine, il componente Card viene invocato per ogni risultato nella lista di risultati, visualizzando così una lista di card di film o serie che corrispondono alla tua ricerca.
+
