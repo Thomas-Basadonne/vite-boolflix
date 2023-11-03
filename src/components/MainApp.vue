@@ -48,8 +48,11 @@ export default {
         />
       </div>
     </div>
-    <h1 v-if="!store.filmList.length && !store.TvSeriesList.length">
-      Cerca qualcosa
+    <h1
+      v-if="!store.filmList.length && !store.TvSeriesList.length"
+      class="fs-1 p-5 fw-bold position-absolute top-50 start-50 translate-middle badge rounded-pill text-bg-danger text-white"
+    >
+      Cerca un titolo di un film o di una serie tv!
     </h1>
   </main>
 </template>
